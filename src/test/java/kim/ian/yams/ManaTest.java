@@ -18,6 +18,7 @@ public class ManaTest {
             "01", "0W", "0X",
             "XW",
             "GRBUW",
+            "w", "u", "b", "r", "g", "WuBrG", "wUbRg",
     };
 
     @Test
