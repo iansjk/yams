@@ -27,7 +27,7 @@ public class Mana {
 
     public static Set<Color> getColorsFromMana(Mana mana) {
         Set<Color> colors = new HashSet<>();
-        if (mana != null && !(mana.getRepr().equals("0"))) {
+        if (mana != null && !mana.getRepr().equals("0")) {
             Matcher m = VALID_MANA_REGEX.matcher(mana.getRepr());
             m.find();  // prime the matcher for group lookup
             String coloredRepr = m.group("colored");
@@ -59,6 +59,10 @@ public class Mana {
         return colors;
     }
 
+    public static boolean isReprValid(String repr) {
+        return repr != null && VALID_MANA_REGEX.matcher(repr).matches();
+    }
+
     public Mana getConvertedMana() {
         if (!this.repr.equals("0")) {
             Matcher m = VALID_MANA_REGEX.matcher(this.repr);
@@ -74,8 +78,9 @@ public class Mana {
         return new Mana();
     }
 
-    public static boolean isReprValid(String repr) {
-        return repr != null && VALID_MANA_REGEX.matcher(repr).matches();
+    @Override
+    public int hashCode() {
+        return this.repr.hashCode();
     }
 
     @Override
@@ -89,11 +94,6 @@ public class Mana {
         } catch (ClassCastException e) {
             return false;
         }
-    }
-
-    @Override
-    public int hashCode() {
-        return this.repr.hashCode();
     }
 
     @Override
