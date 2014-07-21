@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Island extends Card implements Land {
+    private static String name = "Island";
     private static Set<LandSubtype> subtypes;
 
     static {
@@ -19,6 +20,11 @@ public class Island extends Card implements Land {
     @Override
     public Mana getManaCost() {
         return new Mana();
+    }
+
+    @Override
+    public String getName() {
+        return null;
     }
 
     @Override
