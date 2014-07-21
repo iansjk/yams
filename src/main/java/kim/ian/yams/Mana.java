@@ -3,7 +3,8 @@ package kim.ian.yams;
 import java.util.regex.Pattern;
 
 public class Mana {
-    private static final Pattern VALID_MANA_REGEX = Pattern.compile("(0|([1-9][0-9]*)?W*U*B*R*G*X*)");
+    private static final Pattern VALID_MANA_REGEX = Pattern.compile("0|(?<colorless>([1-9][0-9]*)?)" +
+            "(?<colored>W*U*B*R*G*)(?<x>X*)");
 
     private final String repr;
 
