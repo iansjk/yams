@@ -1,10 +1,11 @@
 package kim.ian.yams;
 
 import kim.ian.yams.cardtypes.Color;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Set;
+
+import static org.junit.Assert.*;
 
 public class ManaTest {
     private static final String[] validReprs = {
@@ -26,7 +27,7 @@ public class ManaTest {
         for (String s : invalidReprs) {
             try {
                 new Mana(s);
-                Assert.fail(s + " was an invalid repr but no IllegalArgumentException was raised");
+                fail(s + " was an invalid repr but no IllegalArgumentException was raised");
             } catch (IllegalArgumentException e) {
                 // expected
             }
@@ -36,52 +37,52 @@ public class ManaTest {
     @Test
     public void testIsReprValid() {
         for (String s : validReprs) {
-            Assert.assertTrue(s + " should be valid but was marked invalid", Mana.isReprValid(s));
+            assertTrue(s + " should be valid but was marked invalid", Mana.isReprValid(s));
         }
         for (String s : invalidReprs) {
-            Assert.assertFalse(s + " should be invalid but was marked valid", Mana.isReprValid(s));
+            assertFalse(s + " should be invalid but was marked valid", Mana.isReprValid(s));
         }
     }
 
     @Test
     public void testEquals() {
         // null constructor should always be equal to {0}
-        Assert.assertEquals(new Mana("0"), new Mana());
+        assertEquals(new Mana("0"), new Mana());
 
         // reflexivity
         for (String s : validReprs) {
-            Assert.assertEquals(new Mana(s), new Mana(s));
+            assertEquals(new Mana(s), new Mana(s));
         }
 
         // transitivity
         Mana x = new Mana("10");
         Mana y = new Mana("10");
         Mana z = new Mana("10");
-        Assert.assertEquals(x, y);
-        Assert.assertEquals(y, z);
-        Assert.assertEquals(x, z);
+        assertEquals(x, y);
+        assertEquals(y, z);
+        assertEquals(x, z);
 
         // symmetry
-        Assert.assertEquals(x, y);
-        Assert.assertEquals(y, x);
+        assertEquals(x, y);
+        assertEquals(y, x);
 
         // null = false
-        Assert.assertNotEquals(new Mana(), null);
+        assertNotEquals(new Mana(), null);
 
         // class of type other than Mana = false
-        Assert.assertNotEquals(new Mana(), new String());
-        Assert.assertNotEquals(new Mana(), new Integer(0));
+        assertNotEquals(new Mana(), new String());
+        assertNotEquals(new Mana(), new Integer(0));
     }
 
     @Test
     public void testGetColorsFromMana() {
         // null should return empty set
-        Assert.assertTrue(Mana.getColorsFromMana(null).isEmpty());
+        assertTrue(Mana.getColorsFromMana(null).isEmpty());
 
         // colorless should be an empty set
-        Assert.assertTrue(Mana.getColorsFromMana(new Mana()).isEmpty());
+        assertTrue(Mana.getColorsFromMana(new Mana()).isEmpty());
         for (int i = 0; i <= 10; i++) {
-            Assert.assertTrue(Mana.getColorsFromMana(new Mana(Integer.toString(i))).isEmpty());
+            assertTrue(Mana.getColorsFromMana(new Mana(Integer.toString(i))).isEmpty());
         }
 
         String[] colorCombinations = {
@@ -92,24 +93,24 @@ public class ManaTest {
         };
         for (String combination : colorCombinations) {
             Set<Color> result = Mana.getColorsFromMana(new Mana(combination));
-            Assert.assertEquals(combination.length(), result.size());
+            assertEquals(combination.length(), result.size());
             for (int i = 0; i < combination.length(); i++) {
                 char color = combination.charAt(i);
                 switch (color) {
                     case 'W':
-                        Assert.assertTrue(result.contains(Color.White));
+                        assertTrue(result.contains(Color.White));
                         break;
                     case 'U':
-                        Assert.assertTrue(result.contains(Color.Blue));
+                        assertTrue(result.contains(Color.Blue));
                         break;
                     case 'B':
-                        Assert.assertTrue(result.contains(Color.Black));
+                        assertTrue(result.contains(Color.Black));
                         break;
                     case 'R':
-                        Assert.assertTrue(result.contains(Color.Red));
+                        assertTrue(result.contains(Color.Red));
                         break;
                     case 'G':
-                        Assert.assertTrue(result.contains(Color.Green));
+                        assertTrue(result.contains(Color.Green));
                         break;
                 }
             }
