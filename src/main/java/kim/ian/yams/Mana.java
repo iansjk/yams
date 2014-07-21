@@ -19,8 +19,17 @@ public class Mana {
         }
     }
 
-    public boolean equals(Mana other) {
-        return this.repr.hashCode() == other.getRepr().hashCode();
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) {
+            return false;
+        }
+        try {
+            Mana otherMana = (Mana) other;
+            return this.repr.equals(otherMana.getRepr());
+        } catch (ClassCastException e) {
+            return false;
+        }
     }
 
     public int hashCode() {
