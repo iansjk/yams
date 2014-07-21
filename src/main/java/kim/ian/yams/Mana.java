@@ -60,7 +60,7 @@ public class Mana {
     }
 
     public static boolean isReprValid(String repr) {
-        return VALID_MANA_REGEX.matcher(repr).matches();
+        return repr != null && VALID_MANA_REGEX.matcher(repr).matches();
     }
 
     @Override
