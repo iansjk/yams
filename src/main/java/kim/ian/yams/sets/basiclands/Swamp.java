@@ -2,7 +2,7 @@ package kim.ian.yams.sets.basiclands;
 
 import kim.ian.yams.Card;
 import kim.ian.yams.Land;
-import kim.ian.yams.ManaCost;
+import kim.ian.yams.Mana;
 import kim.ian.yams.enums.LandSubtype;
 
 import java.util.HashSet;
@@ -16,8 +16,8 @@ public class Swamp implements Card, Land {
     }
 
     @Override
-    public ManaCost getManaCost() {
-        return new ManaCost("0");
+    public Mana getManaCost() {
+        return new Mana();
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Swamp implements Card, Land {
     }
 
     @Override
-    public ManaCost tap() {
-        return new ManaCost("B");
+    public Mana tap() {
+        return new Mana("B");
     }
 }

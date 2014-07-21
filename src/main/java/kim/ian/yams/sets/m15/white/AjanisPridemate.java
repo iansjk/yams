@@ -2,14 +2,14 @@ package kim.ian.yams.sets.m15.white;
 
 import kim.ian.yams.Card;
 import kim.ian.yams.Creature;
-import kim.ian.yams.ManaCost;
+import kim.ian.yams.Mana;
 import kim.ian.yams.enums.CreatureSubtype;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class AjanisPridemate implements Card, Creature {
-    private static ManaCost manaCost = new ManaCost("1W");
+    private static Mana manaCost = new Mana("1W");
     private static Set<CreatureSubtype> subtypes;
     static {
         subtypes = new HashSet<>();
@@ -21,7 +21,7 @@ public class AjanisPridemate implements Card, Creature {
     private int toughness = 2;
 
     @Override
-    public ManaCost getManaCost() {
+    public Mana getManaCost() {
         return manaCost;
     }
 

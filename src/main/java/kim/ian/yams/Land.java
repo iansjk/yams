@@ -7,5 +7,5 @@ import java.util.Set;
 public interface Land {
     public boolean isBasicLand();
     public Set<LandSubtype> getSubtypes();
-    public ManaCost tap();
+    public Mana tap();
 }
