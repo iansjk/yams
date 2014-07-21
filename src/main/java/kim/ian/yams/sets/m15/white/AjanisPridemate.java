@@ -1,14 +1,14 @@
 package kim.ian.yams.sets.m15.white;
 
+import kim.ian.yams.Mana;
 import kim.ian.yams.cardtypes.Card;
 import kim.ian.yams.cardtypes.Creature;
-import kim.ian.yams.Mana;
 import kim.ian.yams.cardtypes.CreatureSubtype;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class AjanisPridemate implements Card, Creature {
+public class AjanisPridemate extends Card implements Creature {
     private static Mana manaCost = new Mana("1W");
     private static Set<CreatureSubtype> subtypes;
     static {

@@ -5,7 +5,7 @@ import kim.ian.yams.Mana;
 import kim.ian.yams.cardtypes.Planeswalker;
 import kim.ian.yams.cardtypes.PlaneswalkerSubtype;
 
-public class AjaniSteadfast implements Card, Planeswalker {
+public class AjaniSteadfast extends Card implements Planeswalker {
     private static final PlaneswalkerSubtype subtype = PlaneswalkerSubtype.Ajani;
     private static Mana manaCost = new Mana("3W");
 

@@ -8,7 +8,7 @@ import kim.ian.yams.cardtypes.LandSubtype;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Plains implements Card, Land {
+public class Plains extends Card implements Land {
     private static Set<LandSubtype> subtypes;
     static {
         subtypes.add(LandSubtype.Plains);

@@ -1,7 +1,10 @@
 package kim.ian.yams;
 
+import kim.ian.yams.cardtypes.Color;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Set;
 
 public class ManaTest {
     private static final String[] validReprs = {
@@ -68,5 +71,48 @@ public class ManaTest {
         // class of type other than Mana = false
         Assert.assertNotEquals(new Mana(), new String());
         Assert.assertNotEquals(new Mana(), new Integer(0));
+    }
+
+    @Test
+    public void testGetColorsFromMana() {
+        // null should return empty set
+        Assert.assertTrue(Mana.getColorsFromMana(null).isEmpty());
+
+        // colorless should be an empty set
+        Assert.assertTrue(Mana.getColorsFromMana(new Mana()).isEmpty());
+        for (int i = 0; i <= 10; i++) {
+            Assert.assertTrue(Mana.getColorsFromMana(new Mana(Integer.toString(i))).isEmpty());
+        }
+
+        String[] colorCombinations = {
+                "W", "U", "B", "R", "G",
+                "WU", "UB", "BR", "RG",
+                "WUB", "BRG",
+                "WUBRG",
+        };
+        for (String combination : colorCombinations) {
+            Set<Color> result = Mana.getColorsFromMana(new Mana(combination));
+            Assert.assertEquals(result.size(), combination.length());
+            for (int i = 0; i < combination.length(); i++) {
+                char color = combination.charAt(i);
+                switch (color) {
+                    case 'W':
+                        Assert.assertTrue(result.contains(Color.White));
+                        break;
+                    case 'U':
+                        Assert.assertTrue(result.contains(Color.Blue));
+                        break;
+                    case 'B':
+                        Assert.assertTrue(result.contains(Color.Black));
+                        break;
+                    case 'R':
+                        Assert.assertTrue(result.contains(Color.Red));
+                        break;
+                    case 'G':
+                        Assert.assertTrue(result.contains(Color.Green));
+                        break;
+                }
+            }
+        }
     }
 }

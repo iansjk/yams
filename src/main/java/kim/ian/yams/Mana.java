@@ -1,5 +1,10 @@
 package kim.ian.yams;
 
+import kim.ian.yams.cardtypes.Color;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Mana {
@@ -18,6 +23,40 @@ public class Mana {
         } else {
             throw new IllegalArgumentException(repr + " is not a valid mana representation");
         }
+    }
+
+    public static Set<Color> getColorsFromMana(Mana mana) {
+        Set<Color> colors = new HashSet<>();
+        if (mana != null && !(mana.getRepr().equals("0"))) {
+            Matcher m = VALID_MANA_REGEX.matcher(mana.getRepr());
+            m.find();  // prime the matcher for group lookup
+            String coloredRepr = m.group("colored");
+            for (int i = 0; i < coloredRepr.length(); i++) {
+                char colorCharacter = coloredRepr.charAt(i);
+                Color colorToAdd = null;
+                switch (colorCharacter) {
+                    case 'W':
+                        colorToAdd = Color.White;
+                        break;
+                    case 'U':
+                        colorToAdd = Color.Blue;
+                        break;
+                    case 'B':
+                        colorToAdd = Color.Black;
+                        break;
+                    case 'R':
+                        colorToAdd = Color.Red;
+                        break;
+                    case 'G':
+                        colorToAdd = Color.Green;
+                        break;
+                }
+                if (!colors.contains(colorToAdd)) {
+                    colors.add(colorToAdd);
+                }
+            }
+        }
+        return colors;
     }
 
     @Override
