@@ -2,10 +2,7 @@ package kim.ian.yams;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
-@RunWith(JUnit4.class)
 public class ManaTest {
     private static final String[] validReprs = {
             "0", "1", "500",
