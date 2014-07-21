@@ -30,9 +30,4 @@ public class Forest extends Card implements Land {
     public Set<LandSubtype> getSubtypes() {
         return subtypes;
     }
-
-    @Override
-    public Mana tap() {
-        return new Mana("G");
-    }
 }
