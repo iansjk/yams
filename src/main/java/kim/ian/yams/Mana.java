@@ -59,6 +59,21 @@ public class Mana {
         return colors;
     }
 
+    public Mana getConvertedMana() {
+        if (!this.repr.equals("0")) {
+            Matcher m = VALID_MANA_REGEX.matcher(this.repr);
+            m.find();  // prime the matcher for group lookup
+            String colorlessPart = m.group("colorless");
+            String coloredPart = m.group("colored");
+            int totalCost = (colorlessPart.isEmpty()) ? 0 : Integer.parseInt(colorlessPart);
+            if (!coloredPart.isEmpty()) {
+                totalCost += coloredPart.length();
+            }
+            return new Mana(Integer.toString(totalCost));
+        }
+        return new Mana();
+    }
+
     public static boolean isReprValid(String repr) {
         return repr != null && VALID_MANA_REGEX.matcher(repr).matches();
     }

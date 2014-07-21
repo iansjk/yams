@@ -21,6 +21,12 @@ public class ManaTest {
             "GRBUW",
             "w", "u", "b", "r", "g", "WuBrG", "wUbRg",
     };
+    private static final String[] colorCombinations = {
+            "W", "U", "B", "R", "G",
+            "WU", "UB", "BR", "RG",
+            "WUB", "BRG",
+            "WUBRG",
+    };
 
     @Test
     public void testConstructorWithInvalidRepr() {
@@ -85,12 +91,6 @@ public class ManaTest {
             assertTrue(Mana.getColorsFromMana(new Mana(Integer.toString(i))).isEmpty());
         }
 
-        String[] colorCombinations = {
-                "W", "U", "B", "R", "G",
-                "WU", "UB", "BR", "RG",
-                "WUB", "BRG",
-                "WUBRG",
-        };
         for (String combination : colorCombinations) {
             Set<Color> result = Mana.getColorsFromMana(new Mana(combination));
             assertEquals(combination.length(), result.size());
@@ -115,5 +115,29 @@ public class ManaTest {
                 }
             }
         }
+    }
+
+    @Test
+    public void testGetConvertedMana() {
+        // numbers all return themselves
+        assertEquals(new Mana(), new Mana().getConvertedMana());
+        for (int i = 0; i <= 10; i++) {
+            assertEquals(new Mana(Integer.toString(i)), new Mana(Integer.toString(i)).getConvertedMana());
+        }
+
+        // color combinations return length
+        for (String combination : colorCombinations) {
+            assertEquals(new Mana(Integer.toString(combination.length())), new Mana(combination).getConvertedMana());
+        }
+
+        // {X} is always {0} CMC
+        String[] xs = {"X", "XX", "XXX"};
+        for (String x : xs) {
+            assertEquals(new Mana("0"), new Mana(x).getConvertedMana());
+        }
+
+        // all together now:
+        String allCombined = "15WUBRGXXX";  // should return {20}
+        assertEquals(new Mana("20"), new Mana(allCombined).getConvertedMana());
     }
 }
