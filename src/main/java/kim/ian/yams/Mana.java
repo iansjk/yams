@@ -3,7 +3,7 @@ package kim.ian.yams;
 public class Mana {
     private static final String VALID_MANA_REGEX = "(0|([1-9][0-9]*)?W*U*B*R*G*X*)";
 
-    private String repr;
+    private final String repr;
 
     public Mana() {
         this.repr = "0";
@@ -27,10 +27,6 @@ public class Mana {
 
     public String getRepr() {
         return this.repr;
-    }
-
-    public void setRepr(String repr) {
-        this.repr = repr;
     }
 
     public static boolean isReprValid(String repr) {
