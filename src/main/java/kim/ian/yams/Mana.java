@@ -81,6 +81,11 @@ public class Mana {
         return this.repr.hashCode();
     }
 
+    @Override
+    public String toString() {
+        return this.repr;
+    }
+
     public String getRepr() {
         return this.repr;
     }
