@@ -17,6 +17,14 @@ public class Mana {
         }
     }
 
+    public String getRepr() {
+        return this.repr;
+    }
+
+    public void setRepr(String repr) {
+        this.repr = repr;
+    }
+
     public static boolean isReprValid(String repr) {
         return repr.matches(VALID_MANA_REGEX);
     }
