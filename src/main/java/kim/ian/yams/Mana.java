@@ -32,6 +32,7 @@ public class Mana {
         }
     }
 
+    @Override
     public int hashCode() {
         return this.repr.hashCode();
     }
