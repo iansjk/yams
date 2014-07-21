@@ -1,9 +1,9 @@
 package kim.ian.yams.sets.basiclands;
 
-import kim.ian.yams.Card;
-import kim.ian.yams.Land;
+import kim.ian.yams.cardtypes.Card;
+import kim.ian.yams.cardtypes.Land;
 import kim.ian.yams.Mana;
-import kim.ian.yams.enums.LandSubtype;
+import kim.ian.yams.cardtypes.LandSubtype;
 
 import java.util.HashSet;
 import java.util.Set;

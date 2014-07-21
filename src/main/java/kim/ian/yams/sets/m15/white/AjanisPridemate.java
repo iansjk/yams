@@ -1,9 +1,9 @@
 package kim.ian.yams.sets.m15.white;
 
-import kim.ian.yams.Card;
-import kim.ian.yams.Creature;
+import kim.ian.yams.cardtypes.Card;
+import kim.ian.yams.cardtypes.Creature;
 import kim.ian.yams.Mana;
-import kim.ian.yams.enums.CreatureSubtype;
+import kim.ian.yams.cardtypes.CreatureSubtype;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,6 +1,6 @@
-package kim.ian.yams;
+package kim.ian.yams.cardtypes;
 
-import kim.ian.yams.enums.CreatureSubtype;
+import kim.ian.yams.cardtypes.CreatureSubtype;
 
 import java.util.Set;
 
