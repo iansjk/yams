@@ -17,6 +17,14 @@ public class Mana {
         }
     }
 
+    public boolean equals(Mana other) {
+        return this.repr.hashCode() == other.getRepr().hashCode();
+    }
+
+    public int hashCode() {
+        return this.repr.hashCode();
+    }
+
     public String getRepr() {
         return this.repr;
     }
