@@ -11,6 +11,7 @@ import java.util.Set;
 public class AjanisPridemate extends Card implements Creature {
     private static Mana manaCost = new Mana("1W");
     private static Set<CreatureSubtype> subtypes;
+
     static {
         subtypes = new HashSet<>();
         subtypes.add(CreatureSubtype.Cat);

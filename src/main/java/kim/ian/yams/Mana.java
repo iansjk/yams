@@ -59,6 +59,10 @@ public class Mana {
         return colors;
     }
 
+    public static boolean isReprValid(String repr) {
+        return VALID_MANA_REGEX.matcher(repr).matches();
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == null) {
@@ -79,9 +83,5 @@ public class Mana {
 
     public String getRepr() {
         return this.repr;
-    }
-
-    public static boolean isReprValid(String repr) {
-        return VALID_MANA_REGEX.matcher(repr).matches();
     }
 }

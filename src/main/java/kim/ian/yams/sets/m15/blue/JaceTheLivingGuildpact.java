@@ -1,7 +1,7 @@
 package kim.ian.yams.sets.m15.blue;
 
-import kim.ian.yams.cardtypes.Card;
 import kim.ian.yams.Mana;
+import kim.ian.yams.cardtypes.Card;
 import kim.ian.yams.cardtypes.Planeswalker;
 import kim.ian.yams.cardtypes.PlaneswalkerSubtype;
 

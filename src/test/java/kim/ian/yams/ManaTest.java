@@ -23,7 +23,7 @@ public class ManaTest {
 
     @Test
     public void testConstructorWithInvalidRepr() {
-        for (String s: invalidReprs) {
+        for (String s : invalidReprs) {
             try {
                 new Mana(s);
                 Assert.fail(s + " was an invalid repr but no IllegalArgumentException was raised");
@@ -35,10 +35,10 @@ public class ManaTest {
 
     @Test
     public void testIsReprValid() {
-        for (String s: validReprs) {
+        for (String s : validReprs) {
             Assert.assertTrue(s + " should be valid but was marked invalid", Mana.isReprValid(s));
         }
-        for (String s: invalidReprs) {
+        for (String s : invalidReprs) {
             Assert.assertFalse(s + " should be invalid but was marked valid", Mana.isReprValid(s));
         }
     }
