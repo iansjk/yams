@@ -1,7 +1,9 @@
 package kim.ian.yams;
 
+import java.util.regex.Pattern;
+
 public class Mana {
-    private static final String VALID_MANA_REGEX = "(0|([1-9][0-9]*)?W*U*B*R*G*X*)";
+    private static final Pattern VALID_MANA_REGEX = Pattern.compile("(0|([1-9][0-9]*)?W*U*B*R*G*X*)");
 
     private final String repr;
 
@@ -30,6 +32,6 @@ public class Mana {
     }
 
     public static boolean isReprValid(String repr) {
-        return repr.matches(VALID_MANA_REGEX);
+        return VALID_MANA_REGEX.matcher(repr).matches();
     }
 }
