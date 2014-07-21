@@ -46,7 +46,7 @@ public class ManaTest {
     @Test
     public void testEquals() {
         // null constructor should always be equal to {0}
-        Assert.assertEquals(new Mana(), new Mana("0"));
+        Assert.assertEquals(new Mana("0"), new Mana());
 
         // reflexivity
         for (String s : validReprs) {
@@ -92,7 +92,7 @@ public class ManaTest {
         };
         for (String combination : colorCombinations) {
             Set<Color> result = Mana.getColorsFromMana(new Mana(combination));
-            Assert.assertEquals(result.size(), combination.length());
+            Assert.assertEquals(combination.length(), result.size());
             for (int i = 0; i < combination.length(); i++) {
                 char color = combination.charAt(i);
                 switch (color) {
