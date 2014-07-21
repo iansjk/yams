@@ -13,7 +13,7 @@ public class ManaCost {
         }
     }
 
-    public boolean isReprValid(String repr) {
+    public static boolean isReprValid(String repr) {
         return repr.matches(VALID_MANA_COST_REGEX);
     }
 }

@@ -3,7 +3,7 @@ package kim.ian.yams.sets.m15.white;
 import kim.ian.yams.Card;
 import kim.ian.yams.Creature;
 import kim.ian.yams.ManaCost;
-import kim.ian.yams.type.CreatureSubtype;
+import kim.ian.yams.enums.CreatureSubtype;
 
 import java.util.HashSet;
 import java.util.Set;

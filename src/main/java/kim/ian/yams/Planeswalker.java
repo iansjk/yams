@@ -1,6 +1,6 @@
 package kim.ian.yams;
 
-import kim.ian.yams.type.PlaneswalkerSubtype;
+import kim.ian.yams.enums.PlaneswalkerSubtype;
 
 public interface Planeswalker {
     public PlaneswalkerSubtype getSubtype();

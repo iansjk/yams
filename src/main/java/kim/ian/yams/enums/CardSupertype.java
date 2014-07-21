@@ -1,4 +1,4 @@
-package kim.ian.yams.type;
+package kim.ian.yams.enums;
 
 public enum CardSupertype {
     Legendary,

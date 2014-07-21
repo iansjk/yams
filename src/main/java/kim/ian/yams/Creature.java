@@ -1,6 +1,6 @@
 package kim.ian.yams;
 
-import kim.ian.yams.type.CreatureSubtype;
+import kim.ian.yams.enums.CreatureSubtype;
 
 import java.util.Set;
 

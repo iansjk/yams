@@ -25,6 +25,9 @@
         <module name="yams" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="yams" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

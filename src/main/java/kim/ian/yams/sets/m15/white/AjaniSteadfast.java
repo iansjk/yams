@@ -3,7 +3,7 @@ package kim.ian.yams.sets.m15.white;
 import kim.ian.yams.Card;
 import kim.ian.yams.ManaCost;
 import kim.ian.yams.Planeswalker;
-import kim.ian.yams.type.PlaneswalkerSubtype;
+import kim.ian.yams.enums.PlaneswalkerSubtype;
 
 public class AjaniSteadfast implements Card, Planeswalker {
     private static final PlaneswalkerSubtype subtype = PlaneswalkerSubtype.Ajani;

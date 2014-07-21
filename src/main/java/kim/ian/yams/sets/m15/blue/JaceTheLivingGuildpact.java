@@ -3,7 +3,7 @@ package kim.ian.yams.sets.m15.blue;
 import kim.ian.yams.Card;
 import kim.ian.yams.ManaCost;
 import kim.ian.yams.Planeswalker;
-import kim.ian.yams.type.PlaneswalkerSubtype;
+import kim.ian.yams.enums.PlaneswalkerSubtype;
 
 public class JaceTheLivingGuildpact implements Card, Planeswalker {
     private static final PlaneswalkerSubtype subtype = PlaneswalkerSubtype.Jace;
