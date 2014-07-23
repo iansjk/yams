@@ -18,7 +18,7 @@ public class Mana {
 
     public Mana(String repr) {
         boolean valid = true;
-        
+
         if (repr == null) {
             valid = false;
         } else {
@@ -34,7 +34,7 @@ public class Mana {
                 }
             }
         }
-        
+
         if (!valid) {
             throw new IllegalArgumentException(repr + " is not a valid mana representation");
         }
@@ -85,7 +85,7 @@ public class Mana {
     }
 
     public Mana getConvertedMana() {
-        int totalCost = (colorlessPart.isEmpty()) ? 0 :Integer.parseInt(colorlessPart);
+        int totalCost = (colorlessPart.isEmpty()) ? 0 : Integer.parseInt(colorlessPart);
         if (!coloredPart.isEmpty()) {
             totalCost += coloredPart.length();
         }
