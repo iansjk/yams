@@ -30,6 +30,14 @@ public class ManaTest {
 
     @Test
     public void testConstructorWithInvalidRepr() {
+        for (String s : validReprs) {
+            try {
+                new Mana(s);
+            } catch (IllegalArgumentException e) {
+                fail(s + " was a valid repr but IllegalArgumentException was raised");
+            }
+        }
+
         for (String s : invalidReprs) {
             try {
                 new Mana(s);
@@ -37,16 +45,6 @@ public class ManaTest {
             } catch (IllegalArgumentException e) {
                 // expected
             }
-        }
-    }
-
-    @Test
-    public void testIsReprValid() {
-        for (String s : validReprs) {
-            assertTrue(s + " should be valid but was marked invalid", Mana.isReprValid(s));
-        }
-        for (String s : invalidReprs) {
-            assertFalse(s + " should be invalid but was marked valid", Mana.isReprValid(s));
         }
     }
 
@@ -133,5 +131,47 @@ public class ManaTest {
         // all together now:
         String allCombined = "15WUBRGXXX";  // should return {20}
         assertEquals(new Mana("20"), new Mana(allCombined).getConvertedMana());
+    }
+
+    @Test
+    public void testManaParts() {
+        Mana allCombined = new Mana("15WUBRGXXX");
+        assertEquals("15", allCombined.getColorlessPart());
+        assertEquals("WUBRG", allCombined.getColoredPart());
+        assertEquals("XXX", allCombined.getXs());
+    }
+
+    @Test
+    public void testGetColorlessPart() {
+        for (int i = 0; i <= 10; i++) {
+            Mana m = new Mana(Integer.toString(i));
+            assertEquals(m.getRepr(), m.getColorlessPart());
+            assertEquals("", m.getColoredPart());
+            assertEquals("", m.getXs());
+        }
+    }
+
+    @Test
+    public void testGetColoredPart() {
+        for (String combination : colorCombinations) {
+            Mana m = new Mana(combination);
+            assertEquals(m.getRepr(), m.getColoredPart());
+            assertEquals("", m.getColorlessPart());
+            assertEquals("", m.getXs());
+        }
+    }
+
+    @Test
+    public void testGetXs() {
+        for (int i = 0; i < 3; i++) {
+            String manaRepr = "X";
+            for (int j = 0; j < i; j++) {
+                manaRepr += "X";
+            }
+            Mana m = new Mana(manaRepr);
+            assertEquals(manaRepr, m.getXs());
+            assertEquals("", m.getColorlessPart());
+            assertEquals("", m.getColoredPart());
+        }
     }
 }

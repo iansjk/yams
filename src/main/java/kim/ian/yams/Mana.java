@@ -9,14 +9,33 @@ import java.util.regex.Pattern;
 
 public class Mana {
     private static final Pattern VALID_MANA_REGEX = Pattern.compile("0|(?<colorless>([1-9][0-9]*)?)" +
-            "(?<colored>W*U*B*R*G*)(?<x>X*)");
+            "(?<colored>W*U*B*R*G*)(?<xs>X*)");
 
-    private final String repr;
+    private String repr = "0";
+    private String colorlessPart = "0";
+    private String coloredPart = "";
+    private String xs = "";
 
     public Mana(String repr) {
-        if (isReprValid(repr)) {
-            this.repr = repr;
+        boolean valid = true;
+        
+        if (repr == null) {
+            valid = false;
         } else {
+            Matcher m = VALID_MANA_REGEX.matcher(repr);
+            if (!m.matches()) {
+                valid = false;
+            } else {
+                this.repr = repr;
+                if (!repr.equals("0")) {
+                    this.colorlessPart = m.group("colorless");
+                    this.coloredPart = m.group("colored");
+                    this.xs = m.group("xs");
+                }
+            }
+        }
+        
+        if (!valid) {
             throw new IllegalArgumentException(repr + " is not a valid mana representation");
         }
     }
@@ -24,11 +43,9 @@ public class Mana {
     public static Set<Color> getColorsFromMana(Mana mana) {
         Set<Color> colors = new HashSet<>();
         if (mana != null && !mana.getRepr().equals("0")) {
-            Matcher m = VALID_MANA_REGEX.matcher(mana.getRepr());
-            m.find();  // prime the matcher for group lookup
-            String coloredRepr = m.group("colored");
-            for (int i = 0; i < coloredRepr.length(); i++) {
-                char colorCharacter = coloredRepr.charAt(i);
+            String coloredPart = mana.getColoredPart();
+            for (int i = 0; i < coloredPart.length(); i++) {
+                char colorCharacter = coloredPart.charAt(i);
                 Color colorToAdd = null;
                 switch (colorCharacter) {
                     case 'W':
@@ -55,23 +72,24 @@ public class Mana {
         return colors;
     }
 
-    public static boolean isReprValid(String repr) {
-        return repr != null && VALID_MANA_REGEX.matcher(repr).matches();
+    public String getColorlessPart() {
+        return this.colorlessPart;
+    }
+
+    public String getColoredPart() {
+        return this.coloredPart;
+    }
+
+    public String getXs() {
+        return this.xs;
     }
 
     public Mana getConvertedMana() {
-        if (!repr.equals("0")) {
-            Matcher m = VALID_MANA_REGEX.matcher(repr);
-            m.find();  // prime the matcher for group lookup
-            String colorlessPart = m.group("colorless");
-            String coloredPart = m.group("colored");
-            int totalCost = (colorlessPart.isEmpty()) ? 0 : Integer.parseInt(colorlessPart);
-            if (!coloredPart.isEmpty()) {
-                totalCost += coloredPart.length();
-            }
-            return new Mana(Integer.toString(totalCost));
+        int totalCost = (colorlessPart.isEmpty()) ? 0 :Integer.parseInt(colorlessPart);
+        if (!coloredPart.isEmpty()) {
+            totalCost += coloredPart.length();
         }
-        return new Mana("0");
+        return new Mana(Integer.toString(totalCost));
     }
 
     @Override
