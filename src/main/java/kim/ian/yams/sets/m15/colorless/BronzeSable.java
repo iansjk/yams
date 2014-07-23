@@ -37,7 +37,7 @@ public class BronzeSable extends Card implements Artifact, Creature {
 
     @Override
     public int getPower() {
-        return this.power;
+        return power;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class BronzeSable extends Card implements Artifact, Creature {
 
     @Override
     public int getToughness() {
-        return this.toughness;
+        return toughness;
     }
 
     @Override

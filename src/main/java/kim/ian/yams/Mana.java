@@ -60,8 +60,8 @@ public class Mana {
     }
 
     public Mana getConvertedMana() {
-        if (!this.repr.equals("0")) {
-            Matcher m = VALID_MANA_REGEX.matcher(this.repr);
+        if (!repr.equals("0")) {
+            Matcher m = VALID_MANA_REGEX.matcher(repr);
             m.find();  // prime the matcher for group lookup
             String colorlessPart = m.group("colorless");
             String coloredPart = m.group("colored");
@@ -76,7 +76,7 @@ public class Mana {
 
     @Override
     public int hashCode() {
-        return this.repr.hashCode();
+        return repr.hashCode();
     }
 
     @Override
@@ -86,7 +86,7 @@ public class Mana {
         }
         try {
             Mana otherMana = (Mana) other;
-            return this.repr.equals(otherMana.getRepr());
+            return repr.equals(otherMana.getRepr());
         } catch (ClassCastException e) {
             return false;
         }
@@ -94,10 +94,10 @@ public class Mana {
 
     @Override
     public String toString() {
-        return this.repr;
+        return repr;
     }
 
     public String getRepr() {
-        return this.repr;
+        return repr;
     }
 }
