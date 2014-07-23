@@ -52,9 +52,6 @@ public class ManaTest {
 
     @Test
     public void testEquals() {
-        // null constructor should always be equal to {0}
-        assertEquals(new Mana("0"), new Mana());
-
         // reflexivity
         for (String s : validReprs) {
             assertEquals(new Mana(s), new Mana(s));
@@ -73,11 +70,11 @@ public class ManaTest {
         assertEquals(y, x);
 
         // null = false
-        assertNotEquals(new Mana(), null);
+        assertNotEquals(new Mana("0"), null);
 
         // class of type other than Mana = false
-        assertNotEquals(new Mana(), new String());
-        assertNotEquals(new Mana(), new Integer(0));
+        assertNotEquals(new Mana("0"), new String());
+        assertNotEquals(new Mana("0"), new Integer(0));
     }
 
     @Test
@@ -86,7 +83,6 @@ public class ManaTest {
         assertTrue(Mana.getColorsFromMana(null).isEmpty());
 
         // colorless should be an empty set
-        assertTrue(Mana.getColorsFromMana(new Mana()).isEmpty());
         for (int i = 0; i <= 10; i++) {
             assertTrue(Mana.getColorsFromMana(new Mana(Integer.toString(i))).isEmpty());
         }
@@ -119,8 +115,6 @@ public class ManaTest {
 
     @Test
     public void testGetConvertedMana() {
-        // numbers all return themselves
-        assertEquals(new Mana(), new Mana().getConvertedMana());
         for (int i = 0; i <= 10; i++) {
             assertEquals(new Mana(Integer.toString(i)), new Mana(Integer.toString(i)).getConvertedMana());
         }

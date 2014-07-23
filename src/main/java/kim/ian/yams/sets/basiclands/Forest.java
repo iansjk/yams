@@ -19,7 +19,7 @@ public class Forest extends Card implements Land {
 
     @Override
     public Mana getManaCost() {
-        return new Mana();
+        return new Mana("0");
     }
 
     @Override

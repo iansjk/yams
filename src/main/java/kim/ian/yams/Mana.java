@@ -13,10 +13,6 @@ public class Mana {
 
     private final String repr;
 
-    public Mana() {
-        this.repr = "0";
-    }
-
     public Mana(String repr) {
         if (isReprValid(repr)) {
             this.repr = repr;
@@ -75,7 +71,7 @@ public class Mana {
             }
             return new Mana(Integer.toString(totalCost));
         }
-        return new Mana();
+        return new Mana("0");
     }
 
     @Override
