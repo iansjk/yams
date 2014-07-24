@@ -12,12 +12,11 @@ import java.util.Set;
 public class BronzeSable extends Card implements Artifact, Creature {
     private static final String name = "Bronze Sable";
     private static final int basePower = 2;
+    private int power = basePower;
     private static final int baseToughness = 1;
+    private int toughness = baseToughness;
     private static final Mana manaCost = new Mana("2");
     private static Set<CreatureSubtype> subtypes = Sets.newHashSet(CreatureSubtype.Sable);
-
-    private int power = basePower;
-    private int toughness = baseToughness;
 
     @Override
     public Mana getManaCost() {
