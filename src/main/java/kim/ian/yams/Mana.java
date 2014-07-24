@@ -1,8 +1,8 @@
 package kim.ian.yams;
 
+import com.google.common.collect.Sets;
 import kim.ian.yams.cardtypes.Color;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -41,7 +41,7 @@ public class Mana {
     }
 
     public static Set<Color> getColorsFromMana(Mana mana) {
-        Set<Color> colors = new HashSet<Color>();
+        Set<Color> colors = Sets.newHashSet();
         if (mana != null && !mana.getRepr().equals("0")) {
             String coloredPart = mana.getColoredPart();
             for (int i = 0; i < coloredPart.length(); i++) {

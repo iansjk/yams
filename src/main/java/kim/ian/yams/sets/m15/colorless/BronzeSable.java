@@ -1,9 +1,12 @@
 package kim.ian.yams.sets.m15.colorless;
 
+import com.google.common.collect.Sets;
 import kim.ian.yams.Mana;
-import kim.ian.yams.cardtypes.*;
+import kim.ian.yams.cardtypes.Artifact;
+import kim.ian.yams.cardtypes.Card;
+import kim.ian.yams.cardtypes.Creature;
+import kim.ian.yams.cardtypes.CreatureSubtype;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class BronzeSable extends Card implements Artifact, Creature {
@@ -11,11 +14,7 @@ public class BronzeSable extends Card implements Artifact, Creature {
     private static final int basePower = 2;
     private static final int baseToughness = 1;
     private static final Mana manaCost = new Mana("2");
-    private static Set<CreatureSubtype> subtypes;
-    static {
-        subtypes = new HashSet<CreatureSubtype>();
-        subtypes.add(CreatureSubtype.Sable);
-    }
+    private static Set<CreatureSubtype> subtypes = Sets.newHashSet(CreatureSubtype.Sable);
 
     private int power = basePower;
     private int toughness = baseToughness;

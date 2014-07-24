@@ -1,21 +1,16 @@
 package kim.ian.yams.sets.basiclands;
 
+import com.google.common.collect.Sets;
 import kim.ian.yams.Mana;
 import kim.ian.yams.cardtypes.Card;
 import kim.ian.yams.cardtypes.Land;
 import kim.ian.yams.cardtypes.LandSubtype;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class Mountain extends Card implements Land {
     private static String name = "Mountain";
-    private static Set<LandSubtype> subtypes;
-
-    static {
-        subtypes = new HashSet<LandSubtype>();
-        subtypes.add(LandSubtype.Mountain);
-    }
+    private static Set<LandSubtype> subtypes = Sets.newHashSet(LandSubtype.Mountain);
 
     @Override
     public Mana getManaCost() {
