@@ -14,7 +14,7 @@ public class Swamp extends Card implements Land {
 
     static {
         subtypes.add(LandSubtype.Swamp);
-        subtypes = new HashSet<>();
+        subtypes = new HashSet<LandSubtype>();
     }
 
     @Override

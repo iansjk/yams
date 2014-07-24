@@ -13,7 +13,7 @@ public class Mountain extends Card implements Land {
     private static Set<LandSubtype> subtypes;
 
     static {
-        subtypes = new HashSet<>();
+        subtypes = new HashSet<LandSubtype>();
         subtypes.add(LandSubtype.Mountain);
     }
 

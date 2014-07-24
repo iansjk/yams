@@ -13,7 +13,7 @@ public class BronzeSable extends Card implements Artifact, Creature {
     private static final Mana manaCost = new Mana("2");
     private static Set<CreatureSubtype> subtypes;
     static {
-        subtypes = new HashSet<>();
+        subtypes = new HashSet<CreatureSubtype>();
         subtypes.add(CreatureSubtype.Sable);
     }
 

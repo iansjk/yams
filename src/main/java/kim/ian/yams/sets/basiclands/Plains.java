@@ -14,7 +14,7 @@ public class Plains extends Card implements Land {
 
     static {
         subtypes.add(LandSubtype.Plains);
-        subtypes = new HashSet<>();
+        subtypes = new HashSet<LandSubtype>();
     }
 
     @Override

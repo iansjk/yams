@@ -41,7 +41,7 @@ public class Mana {
     }
 
     public static Set<Color> getColorsFromMana(Mana mana) {
-        Set<Color> colors = new HashSet<>();
+        Set<Color> colors = new HashSet<Color>();
         if (mana != null && !mana.getRepr().equals("0")) {
             String coloredPart = mana.getColoredPart();
             for (int i = 0; i < coloredPart.length(); i++) {
