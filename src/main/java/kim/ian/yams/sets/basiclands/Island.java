@@ -24,7 +24,7 @@ public class Island extends Card implements Land {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
