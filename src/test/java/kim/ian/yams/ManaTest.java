@@ -20,6 +20,7 @@ public class ManaTest {
             "XW",
             "GRBUW",
             "w", "u", "b", "r", "g", "WuBrG", "wUbRg",
+            "x", "xx", "xxx",
     };
     private static final String[] colorCombinations = {
             "W", "U", "B", "R", "G",
